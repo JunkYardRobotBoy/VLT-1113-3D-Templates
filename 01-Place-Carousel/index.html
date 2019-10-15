@@ -116,14 +116,21 @@
         	var camera = new BABYLON.ArcRotateCamera("camera1", -Math.PI/2, 1.2, 100, new BABYLON.Vector3(0, 5, 0), scene);
           camera.setTarget(BABYLON.Vector3.Zero());
           camera.attachControl(canvas, true);
+          // camera.lowerBetaLimit = -Math.PI/6;
+          // camera.upperbetalimit = Math.PI/6;
+          // // camera.lowerRadiusLimit = 30;
+          // // camera.upperRadiusLimit = 500;
 
-          var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene);
+          var light = new BABYLON.HemisphericLight("HemiLight", new BABYLON.Vector3(0, 1, 0), scene);
           light.intensity = 1;
+          scene.ambientColor = new BABYLON.Color3(1,1,1);
+          // var light2 = new BABYLON.AmbientLight("light1",  scene);
+          // light2.intensity = 0.1;
 
           scene.fogMode = BABYLON.Scene.FOGMODE_LINEAR;
           //scene.fogMode = BABYLON.Scene.FOGMODE_EXP;
           scene.fogColor = new BABYLON.Color3(.1, .1, .1);
-          //scene.fogDensity = 0.007;
+          scene.fogDensity = 0.007;
           scene.fogStart = 27.0;
           scene.fogEnd = 177.0;
 
@@ -133,12 +140,12 @@
 
         	// build carousel:
           var plane;
-  var planeSize = 20;
-  var alpha = Math.PI;
-  var panelsCount = urlList.length;
-  var OffsetRotation = (Math.PI/panelsCount)*2;
-  var OffsetPos = panelsCount*5;
-  for (var i=0;i<urlList.length;i++) {
+          var planeSize = 20;
+          var alpha = Math.PI;
+          var panelsCount = urlList.length;
+          var OffsetRotation = (Math.PI/panelsCount)*2;
+          var OffsetPos = panelsCount*5;
+          for (var i=0;i<urlList.length;i++) {
 
       plane = BABYLON.Mesh.CreatePlane("plane"+i, planeSize, scene);
       plane.material = new BABYLON.StandardMaterial("b1mat", scene);
@@ -147,20 +154,21 @@
       console.log(urlList[i]);
       plane.material.diffuseTexture = new BABYLON.Texture(urlList[i], scene);
       plane.material.diffuseTexture.level = 2;
+      plane.material.ambientColor = new BABYLON.Color3(1, 1, 1);
       plane.position = new BABYLON.Vector3(Math.sin(alpha)*OffsetPos, 10, Math.cos(alpha)*OffsetPos);
       alpha += OffsetRotation;
 
       plane.actionManager = new BABYLON.ActionManager(scene);
       plane.actionManager.registerAction(
-          new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, pickImage)
+      new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, pickImage)
+
       );
   }
-
+          //scene.debugLayer.show();
         	return scene;
         };
 
         createScene = createScene;
-
         var engine = new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true });
         var scene = createScene();
 
@@ -175,5 +183,6 @@
             engine.resize();
         });
     </script>
+
 </body>
 </html>
