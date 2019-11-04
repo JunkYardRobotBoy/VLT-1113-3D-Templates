@@ -1,0 +1,367 @@
+{
+    "asset": {
+        "copyright": "(C)2019 Gerard",
+        "generator": "maya2glTF V1.0.0 7de822c",
+        "version": "2.0"
+    },
+    "scenes": [
+        {
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "scene": 0,
+    "nodes": [
+        {
+            "name": "CUP",
+            "children": [
+                3,
+                1
+            ]
+        },
+        {
+            "name": "Lid",
+            "children": [
+                2
+            ],
+            "translation": [
+                0.0,
+                1.5255961418151856,
+                0.0
+            ]
+        },
+        {
+            "name": "Lid:PIV",
+            "mesh": 0,
+            "translation": [
+                0.0,
+                -1.5255961418151856,
+                0.0
+            ]
+        },
+        {
+            "name": "Cup",
+            "children": [
+                4
+            ],
+            "translation": [
+                0.0,
+                1.5255961418151856,
+                0.0
+            ]
+        },
+        {
+            "name": "Cup:PIV",
+            "mesh": 1,
+            "translation": [
+                0.0,
+                -1.5255961418151856,
+                0.0
+            ]
+        }
+    ],
+    "meshes": [
+        {
+            "name": "LidShape",
+            "primitives": [
+                {
+                    "attributes": {
+                        "NORMAL": 1,
+                        "POSITION": 2,
+                        "TANGENT": 3,
+                        "TEXCOORD_0": 4
+                    },
+                    "indices": 0,
+                    "mode": 4,
+                    "material": 0
+                }
+            ]
+        },
+        {
+            "name": "CupShape",
+            "primitives": [
+                {
+                    "attributes": {
+                        "NORMAL": 6,
+                        "POSITION": 7,
+                        "TANGENT": 8,
+                        "TEXCOORD_0": 9
+                    },
+                    "indices": 5,
+                    "mode": 4,
+                    "material": 0
+                }
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "GLSLShader1",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "baseColorTexture": {
+                    "index": 0
+                },
+                "metallicFactor": 1.0,
+                "roughnessFactor": 1.0,
+                "metallicRoughnessTexture": {
+                    "index": 1
+                }
+            },
+            "emissiveFactor": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "occlusionTexture": {
+                "index": 1
+            }
+        }
+    ],
+    "textures": [
+        {
+            "sampler": 0,
+            "source": 0
+        },
+        {
+            "sampler": 0,
+            "source": 1
+        }
+    ],
+    "images": [
+        {
+            "uri": "CoffeeCupMaterial_baseColor.png"
+        },
+        {
+            "uri": "CoffeeCupMaterial_occlusionRoughnessMetallic.png"
+        }
+    ],
+    "samplers": [
+        {
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "wrapS": 10497,
+            "wrapT": 10497
+        }
+    ],
+    "accessors": [
+        {
+            "name": "LidShape#0/indices",
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 2778,
+            "max": [
+                536
+            ],
+            "min": [
+                0
+            ],
+            "type": "SCALAR"
+        },
+        {
+            "name": "LidShape#0/vertices/NORMAL",
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 537,
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "min": [
+                -1.0,
+                -0.9994949102401732,
+                -1.0
+            ],
+            "type": "VEC3"
+        },
+        {
+            "name": "LidShape#0/vertices/POSITION",
+            "bufferView": 1,
+            "byteOffset": 6444,
+            "componentType": 5126,
+            "count": 537,
+            "max": [
+                0.8481168746948242,
+                2.075216770172119,
+                0.8481168746948242
+            ],
+            "min": [
+                -0.8481168746948242,
+                1.5852630138397217,
+                -0.8481168746948242
+            ],
+            "type": "VEC3"
+        },
+        {
+            "name": "LidShape#0/vertices/TANGENT",
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 537,
+            "max": [
+                1.0,
+                0.9428806900978088,
+                0.9999986290931702,
+                1.0
+            ],
+            "min": [
+                -1.0,
+                -0.9428806900978088,
+                -0.9999994039535524,
+                1.0
+            ],
+            "type": "VEC4"
+        },
+        {
+            "name": "LidShape#0/vertices/TEXCOORD_0",
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 537,
+            "max": [
+                0.9707034826278688,
+                0.3654005527496338
+            ],
+            "min": [
+                0.026432454586029057,
+                0.011835814453661442
+            ],
+            "type": "VEC2"
+        },
+        {
+            "name": "CupShape#0/indices",
+            "bufferView": 0,
+            "byteOffset": 5556,
+            "componentType": 5123,
+            "count": 1584,
+            "max": [
+                319
+            ],
+            "min": [
+                0
+            ],
+            "type": "SCALAR"
+        },
+        {
+            "name": "CupShape#0/vertices/NORMAL",
+            "bufferView": 1,
+            "byteOffset": 12888,
+            "componentType": 5126,
+            "count": 320,
+            "max": [
+                0.9996110796928406,
+                0.9999815821647644,
+                0.9996110796928406
+            ],
+            "min": [
+                -0.9996110200881958,
+                -1.0,
+                -0.9996110200881958
+            ],
+            "type": "VEC3"
+        },
+        {
+            "name": "CupShape#0/vertices/POSITION",
+            "bufferView": 1,
+            "byteOffset": 16728,
+            "componentType": 5126,
+            "count": 320,
+            "max": [
+                0.7954692840576172,
+                1.661771535873413,
+                0.7954692840576172
+            ],
+            "min": [
+                -0.7954692840576172,
+                0.0023269650992006065,
+                -0.7954692840576172
+            ],
+            "type": "VEC3"
+        },
+        {
+            "name": "CupShape#0/vertices/TANGENT",
+            "bufferView": 2,
+            "byteOffset": 8592,
+            "componentType": 5126,
+            "count": 320,
+            "max": [
+                1.0,
+                0.913906455039978,
+                1.0,
+                1.0
+            ],
+            "min": [
+                -1.0,
+                -0.9119880199432372,
+                -0.9999999403953552,
+                1.0
+            ],
+            "type": "VEC4"
+        },
+        {
+            "name": "CupShape#0/vertices/TEXCOORD_0",
+            "bufferView": 3,
+            "byteOffset": 4296,
+            "componentType": 5126,
+            "count": 320,
+            "max": [
+                0.99564528465271,
+                0.9868034720420836
+            ],
+            "min": [
+                0.011722922325134278,
+                0.003246129024773836
+            ],
+            "type": "VEC2"
+        }
+    ],
+    "bufferViews": [
+        {
+            "name": "CoffeeCup/data/indices-2",
+            "buffer": 0,
+            "byteOffset": 41136,
+            "byteLength": 8724,
+            "target": 34963
+        },
+        {
+            "name": "CoffeeCup/data/vertices-12",
+            "buffer": 0,
+            "byteOffset": 13712,
+            "byteLength": 20568,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "name": "CoffeeCup/data/vertices-16",
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 13712,
+            "byteStride": 16,
+            "target": 34962
+        },
+        {
+            "name": "CoffeeCup/data/vertices-8",
+            "buffer": 0,
+            "byteOffset": 34280,
+            "byteLength": 6856,
+            "byteStride": 8,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "name": "CoffeeCup/data",
+            "byteLength": 49860,
+            "uri": "CoffeeCup0.bin"
+        }
+    ]
+}
