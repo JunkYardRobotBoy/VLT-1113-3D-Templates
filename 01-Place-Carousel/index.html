@@ -52,7 +52,7 @@
         "textures/coffee03.jpg",
         "textures/coffee04.jpg",
         "textures/coffee05.jpg",
-        // "textures/coffee06.jpg",
+        "textures/coffee06.jpg",
         // "textures/coffee07.jpg",
         // "textures/coffee08.jpg",
         // "textures/coffee09.jpg",
@@ -110,31 +110,19 @@
         	BABYLON.Animation.CreateAndStartAnimation('at7', this, 'material.' + channel, speed, 120, this.material[channel], this.material[channel].add(amt), 0, ease);
         }
 
-        var createScene = function () {
+          var createScene = function () {
         	var scene = new BABYLON.Scene(engine);
 
         	var camera = new BABYLON.ArcRotateCamera("camera1", -Math.PI/2, 1.2, 100, new BABYLON.Vector3(0, 5, 0), scene);
           camera.setTarget(BABYLON.Vector3.Zero());
           camera.attachControl(canvas, true);
-          // camera.lowerBetaLimit = -Math.PI/6;
-          // camera.upperbetalimit = Math.PI/6;
-          // // camera.lowerRadiusLimit = 30;
-          // // camera.upperRadiusLimit = 500;
 
-          var light = new BABYLON.HemisphericLight("HemiLight", new BABYLON.Vector3(0, 1, 0), scene);
-          light.intensity = 1;
+          // var light = new BABYLON.HemisphericLight("HemiLight", new BABYLON.Vector3(0, 1, 0), scene);
+          // light.intensity = 1;
           scene.ambientColor = new BABYLON.Color3(1,1,1);
-          // var light2 = new BABYLON.AmbientLight("light1",  scene);
-          // light2.intensity = 0.1;
+          scene.clearColor = new BABYLON.Color3(0.7, 0.7, 0.7);
 
-          scene.fogMode = BABYLON.Scene.FOGMODE_LINEAR;
-          //scene.fogMode = BABYLON.Scene.FOGMODE_EXP;
-          scene.fogColor = new BABYLON.Color3(.1, .1, .1);
-          scene.fogDensity = 0.007;
-          scene.fogStart = 27.0;
-          scene.fogEnd = 177.0;
-
-            var pickImage = function(bevt) {
+          var pickImage = function(bevt) {
                 console.log("click on " + bevt.source.name);
             }
 
@@ -153,7 +141,7 @@
 
       console.log(urlList[i]);
       plane.material.diffuseTexture = new BABYLON.Texture(urlList[i], scene);
-      plane.material.diffuseTexture.level = 2;
+      plane.material.diffuseTexture.level = 1.1;
       plane.material.ambientColor = new BABYLON.Color3(1, 1, 1);
       plane.position = new BABYLON.Vector3(Math.sin(alpha)*OffsetPos, 10, Math.cos(alpha)*OffsetPos);
       alpha += OffsetRotation;
@@ -164,6 +152,34 @@
 
       );
   }
+
+  // Create a default skybox with an environment.
+    var hdrTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("textures/environment.dds", scene);
+    hdrTexture.gammaSpace = false;
+    scene.environmentTexture = hdrTexture;
+    hdrTexture.intensity = 1.5;
+
+      var GLTFimport = "assets/LPROM_STATIC.gltf"
+
+    // import Centre piece model to scene.
+      var centerModel;
+
+      BABYLON.SceneLoader.ImportMeshAsync("",GLTFimport, "", scene).then(result =>{
+
+        centerModel = result.meshes[0];
+        centerModel.isPickable = false;
+        centerModel.position.y = 10;
+        centerModel.rotationQuaternion = null;
+        centerModel.rotation.y = Math.PI*180
+      	//centerModel.billboardMode = BABYLON.Mesh.BILLBOARDMODE_ALL;
+
+        for (var i = 0; i < scene.materials.length; i++) {
+        var m = scene.materials[i];
+        m.environmentIntensity = 1.2;
+        m.usePhysicalLightFalloff = false;
+      }
+      });
+
           //scene.debugLayer.show();
         	return scene;
         };

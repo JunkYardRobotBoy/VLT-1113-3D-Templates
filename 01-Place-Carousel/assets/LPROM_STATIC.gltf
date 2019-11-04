@@ -1,0 +1,611 @@
+{
+    "asset": {
+        "generator": "maya2glTF V1.0.0 7de822c",
+        "version": "2.0"
+    },
+    "scenes": [
+        {
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "scene": 0,
+    "nodes": [
+        {
+            "name": "LPROM_STATIC",
+            "children": [
+                1
+            ],
+            "translation": [
+                0.0,
+                2.4415860176086427,
+                0.03910433128476143
+            ]
+        },
+        {
+            "name": "LPROM_STATIC:PIV",
+            "mesh": 0,
+            "translation": [
+                0.0,
+                -2.4415860176086427,
+                -0.03910433128476143
+            ]
+        }
+    ],
+    "meshes": [
+        {
+            "name": "LPROM_STATICShape",
+            "primitives": [
+                {
+                    "attributes": {
+                        "COLOR_0": 1,
+                        "NORMAL": 2,
+                        "POSITION": 3,
+                        "TANGENT": 4,
+                        "TEXCOORD_0": 5
+                    },
+                    "indices": 0,
+                    "mode": 4,
+                    "material": 0
+                },
+                {
+                    "attributes": {
+                        "NORMAL": 7,
+                        "POSITION": 8,
+                        "TANGENT": 9,
+                        "TEXCOORD_0": 10
+                    },
+                    "indices": 6,
+                    "mode": 4,
+                    "material": 0
+                },
+                {
+                    "attributes": {
+                        "NORMAL": 12,
+                        "POSITION": 13,
+                        "TANGENT": 14,
+                        "TEXCOORD_0": 15
+                    },
+                    "indices": 11,
+                    "mode": 4,
+                    "material": 1
+                },
+                {
+                    "attributes": {
+                        "COLOR_0": 17,
+                        "NORMAL": 18,
+                        "POSITION": 19,
+                        "TANGENT": 20,
+                        "TEXCOORD_0": 21
+                    },
+                    "indices": 16,
+                    "mode": 4,
+                    "material": 1
+                }
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "GLSLShader3",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "baseColorTexture": {
+                    "index": 0
+                },
+                "metallicFactor": 1.0,
+                "roughnessFactor": 1.0,
+                "metallicRoughnessTexture": {
+                    "index": 1
+                }
+            },
+            "emissiveFactor": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "occlusionTexture": {
+                "index": 1
+            }
+        },
+        {
+            "name": "GLSLShader2",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "baseColorTexture": {
+                    "index": 2
+                },
+                "metallicFactor": 1.0,
+                "roughnessFactor": 1.0,
+                "metallicRoughnessTexture": {
+                    "index": 3
+                }
+            },
+            "emissiveFactor": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "occlusionTexture": {
+                "index": 3
+            }
+        }
+    ],
+    "textures": [
+        {
+            "sampler": 0,
+            "source": 0
+        },
+        {
+            "sampler": 0,
+            "source": 1
+        },
+        {
+            "sampler": 0,
+            "source": 2
+        },
+        {
+            "sampler": 0,
+            "source": 3
+        }
+    ],
+    "images": [
+        {
+            "uri": "Needle_MAT_baseColor.png"
+        },
+        {
+            "uri": "Needle_MAT_occlusionRoughnessMetallic.png"
+        },
+        {
+            "uri": "TT_Mat_baseColor.png"
+        },
+        {
+            "uri": "TT_Mat_occlusionRoughnessMetallic.png"
+        }
+    ],
+    "samplers": [
+        {
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "wrapS": 10497,
+            "wrapT": 10497
+        }
+    ],
+    "accessors": [
+        {
+            "name": "LPROM_STATICShape#0/indices",
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5123,
+            "count": 1080,
+            "max": [
+                431
+            ],
+            "min": [
+                0
+            ],
+            "type": "SCALAR"
+        },
+        {
+            "name": "LPROM_STATICShape#0/vertices/COLOR_0",
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 432,
+            "max": [
+                0.8196077942848206,
+                0.8274508118629456,
+                0.8313724994659424,
+                1.0
+            ],
+            "min": [
+                0.13725492358207704,
+                0.12156865000724793,
+                0.125490203499794,
+                1.0
+            ],
+            "type": "VEC4"
+        },
+        {
+            "name": "LPROM_STATICShape#0/vertices/NORMAL",
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 432,
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "type": "VEC3"
+        },
+        {
+            "name": "LPROM_STATICShape#0/vertices/POSITION",
+            "bufferView": 2,
+            "byteOffset": 5184,
+            "componentType": 5126,
+            "count": 432,
+            "max": [
+                3.127812623977661,
+                9.598121643066408,
+                2.245402812957764
+            ],
+            "min": [
+                -2.3694441318511965,
+                7.339535713195801,
+                -3.626633882522583
+            ],
+            "type": "VEC3"
+        },
+        {
+            "name": "LPROM_STATICShape#0/vertices/TANGENT",
+            "bufferView": 1,
+            "byteOffset": 6912,
+            "componentType": 5126,
+            "count": 432,
+            "max": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "min": [
+                -0.9238789081573486,
+                -1.0,
+                -1.0,
+                1.0
+            ],
+            "type": "VEC4"
+        },
+        {
+            "name": "LPROM_STATICShape#0/vertices/TEXCOORD_0",
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 432,
+            "max": [
+                0.9888415336608888,
+                0.3836138844490051
+            ],
+            "min": [
+                0.0018888510530814529,
+                0.0043322439305484299
+            ],
+            "type": "VEC2"
+        },
+        {
+            "name": "LPROM_STATICShape#1/indices",
+            "bufferView": 0,
+            "byteOffset": 2160,
+            "componentType": 5123,
+            "count": 4788,
+            "max": [
+                1662
+            ],
+            "min": [
+                0
+            ],
+            "type": "SCALAR"
+        },
+        {
+            "name": "LPROM_STATICShape#1/vertices/NORMAL",
+            "bufferView": 2,
+            "byteOffset": 10368,
+            "componentType": 5126,
+            "count": 1663,
+            "max": [
+                0.9954277873039246,
+                1.0,
+                0.9981153011322022
+            ],
+            "min": [
+                -0.9954270720481872,
+                -1.0,
+                -0.9979339241981506
+            ],
+            "type": "VEC3"
+        },
+        {
+            "name": "LPROM_STATICShape#1/vertices/POSITION",
+            "bufferView": 2,
+            "byteOffset": 30324,
+            "componentType": 5126,
+            "count": 1663,
+            "max": [
+                3.17164421081543,
+                9.048917770385744,
+                2.926522254943848
+            ],
+            "min": [
+                -3.173362731933594,
+                7.595489501953125,
+                -5.395572662353516
+            ],
+            "type": "VEC3"
+        },
+        {
+            "name": "LPROM_STATICShape#1/vertices/TANGENT",
+            "bufferView": 1,
+            "byteOffset": 13824,
+            "componentType": 5126,
+            "count": 1663,
+            "max": [
+                0.9954364895820618,
+                1.0,
+                0.9954367876052856,
+                1.0
+            ],
+            "min": [
+                -0.996815860271454,
+                -1.0,
+                -0.995437502861023,
+                1.0
+            ],
+            "type": "VEC4"
+        },
+        {
+            "name": "LPROM_STATICShape#1/vertices/TEXCOORD_0",
+            "bufferView": 3,
+            "byteOffset": 3456,
+            "componentType": 5126,
+            "count": 1663,
+            "max": [
+                0.9463142156600952,
+                0.9980079531669616
+            ],
+            "min": [
+                0.0018888510530814529,
+                0.001992047065868974
+            ],
+            "type": "VEC2"
+        },
+        {
+            "name": "LPROM_STATICShape#2/indices",
+            "bufferView": 0,
+            "byteOffset": 11736,
+            "componentType": 5123,
+            "count": 41934,
+            "max": [
+                14034
+            ],
+            "min": [
+                0
+            ],
+            "type": "SCALAR"
+        },
+        {
+            "name": "LPROM_STATICShape#2/vertices/NORMAL",
+            "bufferView": 2,
+            "byteOffset": 50280,
+            "componentType": 5126,
+            "count": 14035,
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "type": "VEC3"
+        },
+        {
+            "name": "LPROM_STATICShape#2/vertices/POSITION",
+            "bufferView": 2,
+            "byteOffset": 218700,
+            "componentType": 5126,
+            "count": 14035,
+            "max": [
+                12.161088943481446,
+                7.9816694259643559,
+                5.846229553222656
+            ],
+            "min": [
+                -12.161088943481446,
+                -4.575621604919434,
+                -4.823024749755859
+            ],
+            "type": "VEC3"
+        },
+        {
+            "name": "LPROM_STATICShape#2/vertices/TANGENT",
+            "bufferView": 1,
+            "byteOffset": 40432,
+            "componentType": 5126,
+            "count": 14035,
+            "max": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "type": "VEC4"
+        },
+        {
+            "name": "LPROM_STATICShape#2/vertices/TEXCOORD_0",
+            "bufferView": 3,
+            "byteOffset": 16760,
+            "componentType": 5126,
+            "count": 14035,
+            "max": [
+                0.9992725253105164,
+                0.9995019435882568
+            ],
+            "min": [
+                0.0004994639893993735,
+                0.0022554988972842699
+            ],
+            "type": "VEC2"
+        },
+        {
+            "name": "LPROM_STATICShape#3/indices",
+            "bufferView": 0,
+            "byteOffset": 95604,
+            "componentType": 5123,
+            "count": 2574,
+            "max": [
+                894
+            ],
+            "min": [
+                0
+            ],
+            "type": "SCALAR"
+        },
+        {
+            "name": "LPROM_STATICShape#3/vertices/COLOR_0",
+            "bufferView": 1,
+            "byteOffset": 264992,
+            "componentType": 5126,
+            "count": 895,
+            "max": [
+                0.3333332240581513,
+                0.341176301240921,
+                0.3254900574684143,
+                1.0
+            ],
+            "min": [
+                0.2627450823783875,
+                0.2666667103767395,
+                0.24705883860588077,
+                1.0
+            ],
+            "type": "VEC4"
+        },
+        {
+            "name": "LPROM_STATICShape#3/vertices/NORMAL",
+            "bufferView": 2,
+            "byteOffset": 387120,
+            "componentType": 5126,
+            "count": 895,
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "type": "VEC3"
+        },
+        {
+            "name": "LPROM_STATICShape#3/vertices/POSITION",
+            "bufferView": 2,
+            "byteOffset": 397860,
+            "componentType": 5126,
+            "count": 895,
+            "max": [
+                8.55279541015625,
+                7.355208396911621,
+                5.638792037963867
+            ],
+            "min": [
+                -8.55279541015625,
+                -4.714949607849121,
+                -4.994841575622559
+            ],
+            "type": "VEC3"
+        },
+        {
+            "name": "LPROM_STATICShape#3/vertices/TANGENT",
+            "bufferView": 1,
+            "byteOffset": 279312,
+            "componentType": 5126,
+            "count": 895,
+            "max": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ],
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0
+            ],
+            "type": "VEC4"
+        },
+        {
+            "name": "LPROM_STATICShape#3/vertices/TEXCOORD_0",
+            "bufferView": 3,
+            "byteOffset": 129040,
+            "componentType": 5126,
+            "count": 895,
+            "max": [
+                0.9995004534721376,
+                0.997037410736084
+            ],
+            "min": [
+                0.00049950199900195,
+                0.049102783203125
+            ],
+            "type": "VEC2"
+        }
+    ],
+    "bufferViews": [
+        {
+            "name": "LPROM_STATIC/data/indices-2",
+            "buffer": 0,
+            "byteOffset": 838432,
+            "byteLength": 100752,
+            "target": 34963
+        },
+        {
+            "name": "LPROM_STATIC/data/vertices-16",
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 293632,
+            "byteStride": 16,
+            "target": 34962
+        },
+        {
+            "name": "LPROM_STATIC/data/vertices-12",
+            "buffer": 0,
+            "byteOffset": 293632,
+            "byteLength": 408600,
+            "byteStride": 12,
+            "target": 34962
+        },
+        {
+            "name": "LPROM_STATIC/data/vertices-8",
+            "buffer": 0,
+            "byteOffset": 702232,
+            "byteLength": 136200,
+            "byteStride": 8,
+            "target": 34962
+        }
+    ],
+    "buffers": [
+        {
+            "name": "LPROM_STATIC/data",
+            "byteLength": 939184,
+            "uri": "LPROM_STATIC0.bin"
+        }
+    ]
+}

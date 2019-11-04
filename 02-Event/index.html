@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <title>Vertical Life - Event Template</title>
+
+        <!-- Babylon.js -->
+        <script src="https://code.jquery.com/pep/0.4.2/pep.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>
+        <script src="https://preview.babylonjs.com/ammo.js"></script>
+        <script src="https://preview.babylonjs.com/cannon.js"></script>
+        <script src="https://preview.babylonjs.com/Oimo.js"></script>
+        <script src="https://preview.babylonjs.com/gltf_validator.js"></script>
+        <script src="https://preview.babylonjs.com/earcut.min.js"></script>
+        <script src="https://preview.babylonjs.com/babylon.js"></script>
+        <script src="https://preview.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
+        <script src="https://preview.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
+        <script src="https://preview.babylonjs.com/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js"></script>
+        <script src="https://preview.babylonjs.com/postProcessesLibrary/babylonjs.postProcess.min.js"></script>
+        <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+        <script src="https://preview.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
+        <script src="https://preview.babylonjs.com/gui/babylon.gui.min.js"></script>
+
+        <style>
+            html, body {
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            #renderCanvas {
+                width: 100%;
+                height: 100%;
+                touch-action: none;
+            }
+        </style>
+    </head>
+<body>
+    <canvas id="renderCanvas"></canvas>
+    <script>
+
+    var canvas = document.getElementById("renderCanvas");
+
+
+           var createScene = function () {
+           var scene = new BABYLON.Scene(engine);
+
+          var camera = new BABYLON.ArcRotateCamera("camera1", -Math.PI/2,Math.PI/2, 50, new BABYLON.Vector3(0, 5,-10), scene);
+          camera.alpha = BABYLON.Tools.ToRadians(275);
+          camera.setTarget(new BABYLON.Vector3(0, 2,-30));
+          camera.attachControl(canvas, true);
+
+             scene.ambientColor = new BABYLON.Color3(0.75,0.75,0.75);
+
+
+
+             // Create planes for interfaces:
+             var panelHeight = 80;
+             var panelWidth = 80;
+
+   var screen01 = BABYLON.MeshBuilder.CreatePlane("screen01", {height:panelHeight, width: panelWidth, sideOrientation: BABYLON.Mesh.DOUBLESIDE}, scene);
+   screen01.position = new BABYLON.Vector3(0, 10, 40);
+
+
+   var screen02 = BABYLON.MeshBuilder.CreatePlane("screen02", {height:panelHeight, width: panelWidth, sideOrientation: BABYLON.Mesh.DOUBLESIDE}, scene);
+   screen02.position = new BABYLON.Vector3(-50, 10, -30);
+   screen02.rotation.y = BABYLON.Tools.ToRadians(-75);
+
+   var screen03 = BABYLON.MeshBuilder.CreatePlane("screen03", {height:panelHeight, width: panelWidth, sideOrientation: BABYLON.Mesh.DOUBLESIDE}, scene);
+   screen03.position = new BABYLON.Vector3(50, 10, -30);
+   screen03.rotation.y = BABYLON.Tools.ToRadians(75);
+
+   var advancedTexture1 = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(screen01);
+   var advancedTexture2 = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(screen02);
+   var advancedTexture3 = BABYLON.GUI.AdvancedDynamicTexture.CreateForMesh(screen03);
+
+   var PreviewImageURL = "textures/EventPreviewImage.jpg";
+   var mapImageURL = "textures/googleMap.jpg"
+   var Time = "5:00pm";
+   var Date = "15 October 2019";
+   var eventInfoTxt = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla placerat interdum volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultrices elementum nisl, sed aliquet elit gravida id. Donec sed urna eget metus sodales cursus. Quisque ornare sed lorem ac tristique. Mauris in ligula bibendum, dapibus enim a, ultrices dui. Morbi eu venenatis turpis. Quisque mattis nisi massa, ut convallis tortor mattis quis. Cras ut dictum ipsum. Nullam finibus placerat ligula, eu placerat lectus dapibus id. Integer nec convallis sapien.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla placerat interdum volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+   var locationInfo = "Perth City"
+
+   var websiteURL = "http://verticallife.com"
+
+   var videoURL = "textures/eventVideo.mp4";
+   var portalImageURL = "textures/portal.jpg"
+   var photosURL = "textures/Photos.jpg"
+   var misc3DContent01 = "textures/misc3DContent.png"
+   var misc3DContent02 = "textures/misc3DContent.png"
+   var misc3DContent03 = "textures/misc3DContent.png"
+   var misc3DContent04 = "textures/misc3DContent.png"
+   //SCREEN01
+
+       // Background:
+       var rect1 = new BABYLON.GUI.Rectangle();
+       rect1.width = 1;
+       rect1.height = 0.525;
+       rect1.cornerRadius = 5;
+       rect1.background = "black";
+       rect1.alpha = 0.5;
+       rect1.isPointerBlocker = true;
+       advancedTexture1.addControl(rect1);
+
+       //title
+       var eventTitle = new BABYLON.GUI.TextBlock("eventTitle");
+       eventTitle.fontFamily = "Helvetica";
+       eventTitle.textWrapping = true;
+       eventTitle.text = "EVENT TITLE";
+       eventTitle.color = "white";
+       eventTitle.fontSize = "42px";
+       eventTitle.top = 20;
+       advancedTexture1.addControl(eventTitle);
+
+       //previewImage
+       var previewImage = new BABYLON.GUI.Image("previewImage", PreviewImageURL);
+       previewImage.clipContent = true;
+       previewImage.width = 0.9;
+       previewImage.height = "240px";
+       previewImage.stretch = BABYLON.GUI.Image.STRETCH_FILL;
+       previewImage.top = -130;
+       advancedTexture1.addControl(previewImage);
+
+       //Time and Date:
+       var timeiconBTN = BABYLON.GUI.Button.CreateImageOnlyButton("addToCal", "textures/timeIcon.png");
+       timeiconBTN.thickness = 0;
+       timeiconBTN.width = "345px";
+       timeiconBTN.height = "37px";
+       timeiconBTN.top = 80;
+       timeiconBTN.left = 0;
+       advancedTexture1.addControl(timeiconBTN);
+
+       var timeDateBTN = BABYLON.GUI.Button.CreateSimpleButton("date", Time + "," + Date);
+       timeDateBTN.fontFamily = "Helvetica";
+       timeDateBTN.fontSize = "20px";
+       timeDateBTN.color = "white";
+       timeDateBTN.thickness = 0;
+       timeDateBTN.width = "345px";
+       timeDateBTN.height = "37px";
+       timeDateBTN.top = 70;
+       advancedTexture1.addControl(timeDateBTN);
+
+      var sv = new BABYLON.GUI.ScrollViewer();
+       sv.thickness = 0.5;
+       sv.color = "white";
+       sv.width = 0.9;
+       sv.height = 0.15;
+       sv.background = "black";
+       sv.top = 180;
+
+       advancedTexture1.addControl(sv);
+
+       var tb = new BABYLON.GUI.TextBlock();
+       tb.textWrapping = BABYLON.GUI.TextWrapping.WordWrap;
+       tb.resizeToFit = true;
+       tb.paddingTop = "5%";
+       tb.paddingLeft = "30px";
+       tb.paddingRight = "20px"
+       tb.paddingBottom = "5%";
+       tb.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+       tb.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+       tb.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+       tb.textVerticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+       tb.color = "white";
+       tb.text = eventInfoTxt;
+       tb.fontSize = "21px";
+       // tb.lineSpacing = "0px";
+       sv.addControl(tb);
+
+       //Screen 02
+       // Background:
+       var rect2 = new BABYLON.GUI.Rectangle();
+       rect2.width = 1;
+       rect2.height = 0.525;
+       rect2.cornerRadius = 5;
+       rect2.background = "black";
+       rect2.alpha = 0.5;
+       rect2.isPointerBlocker = true;
+       advancedTexture2.addControl(rect1);
+
+       //location icon
+       var locationiconBTN = BABYLON.GUI.Button.CreateImageOnlyButton("addToCal", "textures/locationIcon.png");
+       locationiconBTN.thickness = 0;
+       locationiconBTN.width = "30px";
+       locationiconBTN.height = "35px";
+       locationiconBTN.top = -220;
+       locationiconBTN.left = 80;
+       advancedTexture2.addControl(locationiconBTN);
+
+       var locationBTN = BABYLON.GUI.Button.CreateSimpleButton("location", locationInfo);
+       locationBTN.fontFamily = "Helvetica";
+       locationBTN.fontSize = "32px";
+       locationBTN.color = "white";
+       locationBTN.thickness = 0;
+       locationBTN.width = "400px";
+       locationBTN.height = "200px";
+       locationBTN.top = -230;
+       locationBTN.left = 190;
+       advancedTexture2.addControl(locationBTN);
+
+       //mapImage
+       var mapImage = BABYLON.GUI.Button.CreateImageOnlyButton("map", mapImageURL);
+       mapImage.clipContent = true;
+       mapImage.width = 0.4;
+       mapImage.height = 0.172;
+       mapImage.stretch = BABYLON.GUI.Image.STRETCH_FILL;
+       mapImage.top = -100;
+       mapImage.left = 270;
+       advancedTexture2.addControl(mapImage);
+
+       var portalTitle = BABYLON.GUI.Button.CreateSimpleButton("location", "Enter Portal");
+       portalTitle.fontFamily = "Helvetica";
+       portalTitle.fontSize = "32px";
+       portalTitle.color = "white";
+       portalTitle.thickness = 0;
+       portalTitle.width = "400px";
+       portalTitle.height = "200px";
+       portalTitle.top = 10;
+       portalTitle.left = 150;
+       advancedTexture2.addControl(portalTitle);
+
+        //portalImage
+        var portalImage = BABYLON.GUI.Button.CreateImageOnlyButton("map", portalImageURL);
+        portalImage.clipContent = true;
+        portalImage.width = 0.4;
+        portalImage.height = 0.172;
+        portalImage.stretch = BABYLON.GUI.Image.STRETCH_FILL;
+        portalImage.top = 145;
+        portalImage.left = 270;
+        advancedTexture2.addControl(portalImage);
+
+        //Photo TITLE
+        var photoTitle = new BABYLON.GUI.TextBlock("Photos");
+        photoTitle.fontFamily = "Helvetica";
+        photoTitle.textWrapping = true;
+        photoTitle.text = "PHOTOS";
+        photoTitle.color = "white";
+        photoTitle.fontSize = "42px";
+        photoTitle.top = -240;
+        photoTitle.left = -250;
+        advancedTexture2.addControl(photoTitle);
+
+        var photoCarousel = BABYLON.GUI.Button.CreateImageOnlyButton("map", photosURL);
+        photoCarousel.width = 0.5;
+        photoCarousel.height = 0.42;
+        photoCarousel.stretch = BABYLON.GUI.Image.STRETCH_FILL;
+        photoCarousel.top = 20;
+        photoCarousel.left = -230;
+        advancedTexture2.addControl(photoCarousel);
+
+           //Screen 03
+           // Background:
+
+           var rect3 = new BABYLON.GUI.Rectangle();
+           rect3.width = 1;
+           rect3.height = 0.525;
+           rect3.cornerRadius = 5;
+           rect3.background = "black";
+           rect3.alpha = 0.5;
+           rect3.isPointerBlocker = true;
+           advancedTexture3.addControl(rect1);
+
+              //title
+               var videoEventTitle = new BABYLON.GUI.TextBlock("Video Event Title");
+               videoEventTitle.fontFamily = "Helvetica";
+               videoEventTitle.textWrapping = true;
+               videoEventTitle.text = "VIDEO EVENT TITLE";
+               videoEventTitle.color = "white";
+               videoEventTitle.fontSize = "42px";
+               videoEventTitle.top = -240;
+               videoEventTitle.left = -150;
+               advancedTexture3.addControl(videoEventTitle);
+
+               // Video Screen:
+               var videoScreen = BABYLON.MeshBuilder.CreatePlane("videoScreen", {height:28, width: 49.5, sideOrientation: BABYLON.Mesh.DOUBLESIDE}, scene);
+               videoScreen.position = new BABYLON.Vector3(45, 11, -17);
+               videoScreen.rotation.x = BABYLON.Tools.ToRadians(180);
+               videoScreen.rotation.y = BABYLON.Tools.ToRadians(75);
+
+               	var mat = new BABYLON.StandardMaterial("mat", scene);
+
+               	var videoTexture = new BABYLON.VideoTexture("video", videoURL, scene, true, true);
+                //videoTexture.video.pause();
+               	mat.diffuseTexture = videoTexture;
+
+               	videoScreen.material = mat;
+                mat.ambientColor = new BABYLON.Color3(1,1,1);
+
+                videoScreen.actionManager = new BABYLON.ActionManager(scene);
+
+                videoScreen.actionManager.registerAction(
+                  new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger,
+                    function () {
+                      if (videoTexture.video.paused == true) {
+                        // Play the video
+                        videoTexture.video.play();
+                      } else {
+                        // Pause the video
+                        videoTexture.video.pause();
+                      }
+                  }));
+
+                  //Misc Content:
+
+                  //title
+                  var ContentTitle = new BABYLON.GUI.TextBlock("Extra Content");
+                  ContentTitle.fontFamily = "Helvetica";
+                  ContentTitle.textWrapping = true;
+                  ContentTitle.text = "XR Content";
+                  ContentTitle.color = "white";
+                  ContentTitle.fontSize = "42px";
+                  ContentTitle.top = -240;
+                  ContentTitle.left = 320;
+                  advancedTexture3.addControl(ContentTitle);
+
+                  var imageContent01 = BABYLON.GUI.Button.CreateImageOnlyButton("map", misc3DContent01);
+                  imageContent01.clipContent = true;
+                  imageContent01.width = 0.15;
+                  imageContent01.height = 0.15;
+                  imageContent01.top = -105;
+                  imageContent01.left = 250;
+                  advancedTexture3.addControl(imageContent01);
+
+                  var imageContent02 = BABYLON.GUI.Button.CreateImageOnlyButton("map", misc3DContent02);
+                  imageContent02.clipContent = true;
+                  imageContent02.width = 0.15;
+                  imageContent02.height = 0.15;
+                  imageContent02.top = -105;
+                  imageContent02.left = 420;
+                  advancedTexture3.addControl(imageContent02);
+
+                  var imageContent03 = BABYLON.GUI.Button.CreateImageOnlyButton("map", misc3DContent03);
+                  imageContent03.clipContent = true;
+                  imageContent03.width = 0.15;
+                  imageContent03.height = 0.15;
+                  imageContent03.top = 60;
+                  imageContent03.left = 250;
+                  advancedTexture3.addControl(imageContent03);
+
+                  var imageContent04 = BABYLON.GUI.Button.CreateImageOnlyButton("map", misc3DContent04);
+                  imageContent04.clipContent = true;
+                  imageContent04.width = 0.15;
+                  imageContent04.height = 0.15;
+                  imageContent04.top = 60;
+                  imageContent04.left = 420;
+                  advancedTexture3.addControl(imageContent04);
+
+
+                  var visitWebsiteBTN = BABYLON.GUI.Button.CreateSimpleButton("website Button", "Visit Website");
+                   visitWebsiteBTN.width = 0.2;
+                   visitWebsiteBTN.height = "40px";
+                   visitWebsiteBTN.color = "white";
+                   visitWebsiteBTN.fontSize = "12px";
+                   visitWebsiteBTN.top = 220;
+                   visitWebsiteBTN.left = -150;
+                   // button3.background = "red";
+                   visitWebsiteBTN.onPointerUpObservable.add(function() {
+                      window.open(websiteURL);
+                   });
+                   advancedTexture3.addControl(visitWebsiteBTN);
+
+                   var RSVPTitle = new BABYLON.GUI.TextBlock("RSVP");
+                   RSVPTitle.fontFamily = "Helvetica";
+                   RSVPTitle.textWrapping = true;
+                   RSVPTitle.text = "RSVP";
+                   RSVPTitle.color = "white";
+                   RSVPTitle.fontSize = "42px";
+                   RSVPTitle.top =  155;
+                   RSVPTitle.left = 320;
+                   advancedTexture3.addControl(RSVPTitle);
+
+                    var positiveBTN = BABYLON.GUI.Button.CreateSimpleButton("website Button", "Going");
+                    positiveBTN.width = 0.08;
+                    positiveBTN.height = "40px";
+                    positiveBTN.color = "white";
+                    positiveBTN.fontSize = "12px";
+                    positiveBTN.top = 220;
+                    positiveBTN.left = 210;
+                    positiveBTN.onPointerUpObservable.add(function() {
+                       window.open(websiteURL);
+                    });
+                    advancedTexture3.addControl(positiveBTN);
+
+                    var maybeBTN = BABYLON.GUI.Button.CreateSimpleButton("website Button", "Maybe");
+                    maybeBTN.width = 0.08;
+                    maybeBTN.height = "40px";
+                    maybeBTN.color = "white";
+                    maybeBTN.fontSize = "12px";
+                    maybeBTN.top = 220;
+                    maybeBTN.left = 320;
+                    // button3.background = "red";
+                    maybeBTN.onPointerUpObservable.add(function() {
+                       window.open(websiteURL);
+                    });
+                    advancedTexture3.addControl(maybeBTN);
+
+                    var negBTN = BABYLON.GUI.Button.CreateSimpleButton("website Button", "Not Going");
+                    negBTN.width = 0.08;
+                    negBTN.height = "40px";
+                    negBTN.color = "white";
+                    negBTN.fontSize = "12px";
+                    negBTN.top = 220;
+                    negBTN.left = 430;
+                    // button3.background = "red";
+                    negBTN.onPointerUpObservable.add(function() {
+                       window.open(websiteURL);
+                    });
+                    advancedTexture3.addControl(negBTN);
+
+
+              //scene.debugLayer.show();
+           	return scene;
+           };
+
+        createScene = createScene;
+
+        var engine = new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true });
+        var scene = createScene();
+
+        engine.runRenderLoop(function () {
+            if (scene) {
+                scene.render();
+            }
+        });
+
+        // Resize
+        window.addEventListener("resize", function () {
+            engine.resize();
+        });
+    </script>
+</body>
+</html>
