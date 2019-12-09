@@ -60,55 +60,6 @@
     ];
 
         var canvas = document.getElementById("renderCanvas");
-        BABYLON.AbstractMesh.prototype.spin = function (axis, rads, speed) {
-            var ease = new BABYLON.CubicEase();
-            ease.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEINOUT);
-        	BABYLON.Animation.CreateAndStartAnimation('at4', this, 'rotation.' + axis, speed, 120, this.rotation[axis], this.rotation[axis]+rads, 0, ease);
-        }
-
-        BABYLON.AbstractMesh.prototype.move = function (axis, amt, speed) {
-            var ease = new BABYLON.CubicEase();
-            ease.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEINOUT);
-        	BABYLON.Animation.CreateAndStartAnimation('at5', this, 'position.' + axis, speed, 120, this.position[axis], this.position[axis]+amt, 0, ease);
-        }
-
-        BABYLON.AbstractMesh.prototype.spinTo = function (unused, targetRot, speed) {
-            var ease = new BABYLON.CubicEase();
-            ease.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEINOUT);
-        	BABYLON.Animation.CreateAndStartAnimation('at4', this, 'rotation', speed, 120, this.rotation, targetRot, 0, ease);
-        }
-
-        BABYLON.AbstractMesh.prototype.moveTo = function (axis, targetPos, speed) {
-            var ease = new BABYLON.CubicEase();
-            ease.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEINOUT);
-        	BABYLON.Animation.CreateAndStartAnimation('at5', this, 'position', speed, 120, this.position, targetPos, 0, ease);
-        }
-
-        BABYLON.AbstractMesh.prototype.scale = function (axis, amt, speed) {
-            var ease = new BABYLON.CubicEase();
-            ease.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEINOUT);
-        	BABYLON.Animation.CreateAndStartAnimation('at6', this, 'scaling.' + axis, speed, 120, this.scaling[axis], this.scaling[axis]+amt, 0, ease);
-        }
-
-        BABYLON.AbstractMesh.prototype.scaleTo = function (unused, targetScale, speed) {
-            var ease = new BABYLON.CubicEase();
-            ease.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEINOUT);
-        	BABYLON.Animation.CreateAndStartAnimation('at6', this, 'scaling', speed, 120, this.scaling, targetScale, 0, ease);
-        }
-
-        BABYLON.AbstractMesh.prototype.color = function (channel, amt, speed) {
-            var ease = new BABYLON.CubicEase();
-            ease.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEINOUT);
-            // console.log(eval('this.material.' + channel));
-        	BABYLON.Animation.CreateAndStartAnimation('at7', this, 'material.' + channel, speed, 120, this.material[channel], this.material[channel]+amt, 0, ease);
-        }
-
-        BABYLON.AbstractMesh.prototype.colorTo = function (channel, amt, speed) {
-            var ease = new BABYLON.CubicEase();
-            ease.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEINOUT);
-            // console.log(eval('this.material.' + channel));
-        	BABYLON.Animation.CreateAndStartAnimation('at7', this, 'material.' + channel, speed, 120, this.material[channel], this.material[channel].add(amt), 0, ease);
-        }
 
           var createScene = function () {
         	var scene = new BABYLON.Scene(engine);
